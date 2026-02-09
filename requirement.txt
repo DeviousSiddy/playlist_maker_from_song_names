@@ -1,0 +1,4 @@
+youtube-search-python
+mutagen
+fuzzywuzzy
+python-Levenshtein
