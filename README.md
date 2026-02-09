@@ -13,6 +13,7 @@ A Python tool that scans a local folder of music files, searches for them on You
   - Prompts you to manually select the correct video for low-confidence matches.
 - **Simple GUI**: Built with `tkinter` for easy folder selection.
 - **Clipboard Integration**: Automatically copies the final playlist link to your clipboard.
+- **YouTube Account Integration**: Authenticate with your Google account to create the playlist directly on YouTube.
 
 ## Prerequisites
 
@@ -32,6 +33,23 @@ pip install -r requirement.txt
 - `mutagen`
 - `fuzzywuzzy`
 - `python-Levenshtein`
+- `google-auth-oauthlib`
+- `google-api-python-client`
+- `python-dotenv`
+
+## Google API Setup (Optional)
+
+To use the "Add to My YouTube Account" feature, you need OAuth 2.0 credentials from the Google Cloud Console.
+
+1. Create a project and enable the **YouTube Data API v3**.
+2. Create **OAuth 2.0 Client IDs** (Desktop App).
+3. Download the JSON file.
+4. **Option A (Recommended)**: Rename it to `client_secret.json` and place it in a folder named `keys` inside the project directory.
+5. **Option B**: Create a `.env` file in the project root with:
+   ```
+   YOUTUBE_CLIENT_ID=your_client_id
+   YOUTUBE_CLIENT_SECRET=your_client_secret
+   ```
 
 ## Usage
 
@@ -42,5 +60,5 @@ pip install -r requirement.txt
 2. A small window will appear. Click **Select Folder**.
 3. Choose the directory containing your music files.
 4. The script will search for each song. If a match is ambiguous, a popup will ask you to choose the correct video.
-5. Once finished, a success message will appear, and the **YouTube Playlist URL** will be copied to your clipboard.
-6. Paste the link into your browser to save or watch the playlist.
+5. Once finished, a success window will appear.
+6. You can copy the generated link or click **Add to My YouTube Account** to save it directly to your channel.
